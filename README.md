@@ -35,7 +35,7 @@ you will probably want to override it by bind-mounting your own
 configuration like this:
 
 ``` bash
-docker run -v metricbeat.yml:/usr/share/metricbeat/metricbeat.yml docker.elastic.co/beats/metricbeat:5.2.1
+docker run -v metricbeat.yml:/usr/share/metricbeat/metricbeat.yml docker.elastic.co/beats/metricbeat:5.3.1
 ```
 
 Alternatively, you could extend the image like this:
@@ -63,7 +63,7 @@ matching `/mnt/log/*.log`. Thus, a quick way to get started is to
 mount the host system's log directory:
 
 ``` bash
-docker run -v /var/log:/mnt/log docker.elastic.co/beats/filebeat:5.2.1
+docker run -v /var/log:/mnt/log docker.elastic.co/beats/filebeat:5.3.1
 ```
 
 This mount is configured in the demo, so Filebeat will ship the logs
@@ -75,14 +75,14 @@ capabilities to operate correctly. Ensure that the `NET_ADMIN`
 capability is available to the container. Like so:
 
 ``` bash
-docker run --cap-add=NET_ADMIN docker.elastic.co/beats/packetbeat:5.2.1
+docker run --cap-add=NET_ADMIN docker.elastic.co/beats/packetbeat:5.3.1
 ```
 
 You may also wish to connect the Packetbeat container to the host
 network to see traffic for the host system:
 
 ``` bash
-docker run --cap-add=NET_ADMIN --network=host docker.elastic.co/beats/packetbeat:5.2.1
+docker run --cap-add=NET_ADMIN --network=host docker.elastic.co/beats/packetbeat:5.3.1
 ```
 
 ## Supported Docker versions
